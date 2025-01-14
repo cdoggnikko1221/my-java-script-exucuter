@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run JavaScript Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin-top: 20px;
+            font-size: 16px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .output {
+            margin-top: 30px;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #e9f7e9;
+            border-radius: 5px;
+            color: #333;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Run Your JavaScript Code</h1>
+    <p>Write JavaScript in the textarea below and press "Run" to execute it:</p>
+
+    <!-- Textarea for inputting JavaScript code -->
+    <textarea id="jsInput" placeholder="Type your JavaScript code here..."></textarea>
+
+    <!-- Button to run the JavaScript code -->
+    <br>
+    <button onclick="runJavaScript()">Run</button>
+
+    <!-- Output section to display the results of the JavaScript execution -->
+    <div class="output" id="output"></div>
+
+    <script>
+        // Function to run the JavaScript code entered by the user
+        function runJavaScript() {
+            const code = document.getElementById('jsInput').value; // Get the input code from textarea
+            const outputDiv = document.getElementById('output'); // Output div
+
+            try {
+                // Evaluate the JavaScript code
+                const result = eval(code);
+                outputDiv.innerHTML = "Result: " + result;
+            } catch (error) {
+                // If there's an error in the JavaScript code, display it
+                outputDiv.innerHTML = "Error: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>
